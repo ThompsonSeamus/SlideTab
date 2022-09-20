@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
 
+        pager.setAdapter(new SlideAdapter(this));
+        new TabLayoutMediator(tabLayout, pager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                tab.setText(hobbits.get(position));
+            }
+        }).attach();
+
     }
 
     private void getHobbits(){
@@ -48,7 +57,15 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            return null;
+            if(position == 0){
+                return new bilboFragment();
+            }else if(position == 1){
+                return new frodoFragment();
+            }else if (position == 2){
+                return new samwiseFragment();
+            }else{
+                return new golemFragment();
+            }
         }
 
         @Override
