@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/hobbit_options">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/bilbo_pref_key"
+            android:title="Bilbo" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/frodo_pref_key"
+            android:title="Frodo" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/samwise_pref_key"
+            android:title="Samwise" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/golem_pref_key"
+            android:title="Golem" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

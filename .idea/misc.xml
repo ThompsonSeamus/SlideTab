@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
+        <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/drawable/ic_settings_24.xml" value="0.1785" />
         <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/layout/activity_main.xml" value="0.165625" />
         <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/layout/fragment_bilbo.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/layout/fragment_frodo.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/layout/fragment_golem.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/layout/fragment_samwise.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/menu/menu_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/seamu.th2363/AndroidStudioProjects/SlideTab/app/src/main/res/xml/root_preferences.xml" value="0.14130434782608695" />
       </map>
     </option>
   </component>
