@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.preference.PreferenceManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,12 +28,14 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 pager;
     TabLayout tabLayout;
     List<String> hobbits;
+    SharedPreferences prefrences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        prefrences = PreferenceManager.getDefaultSharedPreferences(this);
         getHobbits();
 
         pager = findViewById(R.id.viewPager);
@@ -63,13 +67,30 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+        if(item.getItemId() == R.id.menu_item_exit)
+        {
+            finish();
+            System.exit(0);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
 
     private void getHobbits(){
-        hobbits = new ArrayList<>(Arrays.asList(HOBBITS));
-
+        hobbits = new ArrayList<>();
+        if(prefrences.getBoolean(getString(R.string.bilbo_pref_key), true)){
+            hobbits.add(HOBBITS[0]);
+        }
+        if(prefrences.getBoolean(getString(R.string.frodo_pref_key), true)){
+            hobbits.add(HOBBITS[1]);
+        }
+        if(prefrences.getBoolean(getString(R.string.samwise_pref_key), true)){
+            hobbits.add(HOBBITS[2]);
+        }
+        if(prefrences.getBoolean(getString(R.string.golem_pref_key), true)){
+            hobbits.add(HOBBITS[3]);
+        }
     }
 
     
@@ -81,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            if(position == 0){
+            if(hobbits.get(position).equals(HOBBITS[0])){
                 return new bilboFragment();
-            }else if(position == 1){
+            }else if(hobbits.get(position).equals(HOBBITS[1])){
                 return new frodoFragment();
-            }else if (position == 2){
+            }else if(hobbits.get(position).equals(HOBBITS[2])){
                 return new samwiseFragment();
             }else{
                 return new golemFragment();
